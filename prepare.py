@@ -58,11 +58,13 @@ def split_data(df, target):
     X_test = pd.get_dummies(X_test, columns=['fips'],drop_first=True)
     y_test = test[target]
     
-    X_train,X_val,X_test = scale_minmax(X_train,X_val,X_test)
     y_train = pd.DataFrame(y_train)
     y_val = pd.DataFrame(y_val)
+    y_test = pd.DataFrame(y_test)
     
     return train, X_train, y_train, X_val, y_val, X_test, y_test
+
+
 
 def new_features(df):
     '''

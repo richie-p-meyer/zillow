@@ -15,6 +15,8 @@ def prepare_zillow(df):
 
     # Lose very small amount dropping nan values
     df = df.dropna()
+    # Change dtype regionidzip
+    df[['fips','yearbuilt']] = df[['fips','yearbuilt']].astype('int')
     # Drop all rows with either no bedrooms or bathrooms
     df = df.drop(df[(df.bedroomcnt==0) | (df.bathroomcnt==0)].index)
     # Drop all properties under 250 square feet (this is a small tiny home)
@@ -48,7 +50,7 @@ def split_data(df, target):
     train_validate, test = train_test_split(df, train_size =.8, random_state = 21)
     train, validate = train_test_split(train_validate, train_size = .7, random_state = 21)
     X_train = train.drop(columns=target)
-    X_train = pd.get_dummies(X_train, columns=['fips'],drop_first=True)
+    X_train = pd.get_dummies(X_train, columns=['fips'],drop_first=True) #Create Dummies
     y_train = train[target]
     
     X_val = validate.drop(columns=target)

@@ -31,8 +31,8 @@ Data dictionary
 
 Instructions or an explanation of how someone else can reproduce your project and findings (What would someone need to be able to recreate your project on their own?)
 1. Download files from https://github.com/richie-p-meyer/zillow
-2. Update your acquire file with your own server credentials
-3. Run the 'Final_Project' notebook
+2. Make sure you have an env.py file with your own server credentials
+3. Run the 'Final_Report' notebook
 
 Key findings, recommendations, and takeaways from your project.
 House age, more beds and baths per square ft, lot size, and percentage of square ft between the house and lot are all drivers of value. Our model beats the Baseline model by 32% which is significant.
